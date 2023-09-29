@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Yew • 0.21 Agents</title>
+    <title>The Rock (1996)</title>
+    <meta property="og:title" content="Yew • 0.21 Agents" />
+    <meta property="og:url" content="https://yew-021-agents.netlify.app/" />
+    <meta
+      property="og:image"
+      content="https://yew-021-agents.netlify.app/opengraph.png"
+    />
+    <meta
+      property="og:description"
+      content="A demo showing oneshot and reactor web workers in Yew 0.21"
+    />
+
+    <link data-trunk rel="sass" href="index.scss" />
+
+    <link
+      data-trunk
+      rel="rust"
+      href="Cargo.toml"
+      data-bin="app"
+      data-type="main"
+      data-weak-refs
+    />
+    <link
+      data-trunk
+      rel="rust"
+      href="Cargo.toml"
+      data-bin="workerreactor"
+      data-type="worker"
+      data-weak-refs
+    />
+    <link
+      data-trunk
+      rel="rust"
+      href="Cargo.toml"
+      data-bin="worker"
+      data-type="worker"
+      data-weak-refs
+    />
+  </head>
+
+  <body></body>
+</html>

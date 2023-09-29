@@ -1,0 +1,61 @@
+html,
+body {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  padding-top: 4rem;
+  display: flex;
+  justify-content: center;
+
+  background: linear-gradient(to bottom right, #444444, #009a5b);
+  font-size: 1.5rem;
+}
+
+main {
+  color: #fff6d5;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.logo {
+  height: 2em;
+}
+
+.heart:after {
+  content: "❤️";
+
+  font-size: 1.75em;
+}
+
+h1 + .subtitle {
+  display: block;
+  margin-top: -1em;
+}
+
+.ww-container {
+  margin-top: 1rem;
+  background: #00000023;
+  padding: 2rem;
+  display: flex;
+  flex:1;
+  border-radius: 10px;
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.input * {
+  margin-top: 1rem;
+}
+
+.display {
+  margin-left: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}

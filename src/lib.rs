@@ -5,7 +5,10 @@ use oneshot::FibonacciTask;
 pub mod reactor;
 use reactor::TimeFormatReactor;
 use web_sys::HtmlInputElement;
-use yew::{platform::spawn_local, prelude::*};
+use yew::{
+    html::ChildrenRenderer, platform::spawn_local,
+    prelude::*, virtual_dom::VNode,
+};
 use yew_agent::{
     oneshot::{use_oneshot_runner, OneshotProvider},
     reactor::{use_reactor_subscription, ReactorProvider},
@@ -23,6 +26,9 @@ pub fn app() -> Html {
             </div>
             <OneShotExample/>
             <ReactorExample/>
+            <RenderPropExample>
+                {|p: RenderProps| html!{<>{"Hello, "}{p.name}</>}}
+            </RenderPropExample>
         </main>
         </ReactorProvider<TimeFormatReactor>>
         </OneshotProvider<FibonacciTask>>
@@ -126,4 +132,39 @@ pub fn one_shot_example() -> Html {
         </div>
     </div>
         }
+}
+
+#[derive(Properties, PartialEq, Clone)]
+pub struct RenderProps {
+    pub name: AttrValue,
+}
+
+#[derive(Properties, PartialEq)]
+pub struct ComponentProps {
+    pub children: Callback<RenderProps, Html>,
+}
+
+#[function_component(RenderPropExample)]
+pub fn render_prop_example(p: &ComponentProps) -> Html {
+    let render_props = RenderProps {
+        name: "chris".into(),
+    };
+    html! {
+        <div class="ww-container">
+            <ul class="input">
+                <li>
+                    {p.children.emit(render_props.clone())}
+                </li>
+                <li>
+                    {p.children.emit(render_props.clone())}
+                </li>
+                <li>
+                    {p.children.emit(render_props)}
+                </li>
+            </ul>
+            <div class="display">
+                <h2>{"Render Props"}</h2>
+            </div>
+        </div>
+    }
 }

@@ -44,6 +44,9 @@ h1 + .subtitle {
 }
 
 .input {
+  border-right: 1px solid #00000044;
+  min-width: 200px;
+  padding-right: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
